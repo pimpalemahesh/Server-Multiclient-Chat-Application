@@ -19,7 +19,14 @@ public class Server {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            serverSocket.close();
+            if(!serverSocket.isClosed()){
+                serverSocket.close();
+            }
+        }
+        finally{
+            if(!serverSocket.isClosed()){
+                serverSocket.close();
+            }
         }
     }
 
